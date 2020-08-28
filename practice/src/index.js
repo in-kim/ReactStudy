@@ -4,14 +4,16 @@ import "./index.css";
 // import Count from "./components/count";
 // import Hello from "./components/hello";
 // import Props from "./components/ex-props";
-import Count from "./components/lifeCycle";
+// import Count from "./components/lifeCycle";
+// import ReactHookCount from "./components/reactHookCount";
+import ReactHookInfo from "./components/reactHookInfo";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   // <React.StrictMode>
   //   <Props message="hellow world" />
   // </React.StrictMode>,
-  <Count />,
+  <ReactHookInfo />,
   document.getElementById("root")
 );
 
