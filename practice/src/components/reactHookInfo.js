@@ -13,6 +13,7 @@ const Info = () => {
     setName(e.target.value);
   };
 
+
   const OnChangeNicname = (e) => {
     setNicname(e.target.value);
   };
