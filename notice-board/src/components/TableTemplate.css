@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.tb-style-01 > table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+.tb-style-01 thead th {
+  padding: 12px;
+  background-color: #343a40;
+  color: #fff;
+  vertical-align: middle;
+  border-bottom: 2px solid #e3e6f0;
+}
+.tb-style-01 tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}

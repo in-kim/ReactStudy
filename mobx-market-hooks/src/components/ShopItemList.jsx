@@ -1,5 +1,8 @@
 import React from "react";
 import ShopItem from "./ShopItem";
+// *** useStore import
+import useStore from "../useStore";
+import { useObserver } from "mobx-react";
 
 const items = [
   {
@@ -21,8 +24,20 @@ const items = [
 ];
 
 const ShopItemList = () => {
-  const itemList = items.map((item) => <ShopItem {...item} key={item.name} />);
-  return <div>{itemList}</div>;
+  // **** useStore에서 market 연결
+  const { market } = useStore();
+
+  const onPut = (name, price) => {
+    market.put(name, price);
+  };
+
+  // **** onPut 함수 추가
+  return useObserver(() => {
+    const itemList = items.map((item) => (
+      <ShopItem {...item} key={item.name} onPut={onPut} />
+    ));
+    return <div>{itemList}</div>;
+  });
 };
 
 export default ShopItemList;

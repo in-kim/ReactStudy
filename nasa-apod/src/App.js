@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import ViewerTemplate from "./components/ViewerTemplate";
+import SpaceNavigator from "./components/SpaceNavigator";
+import Viewer from "./components/Viewer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import * as api from "./lib/api";
+
+class App extends Component {
+  getAPOD = async (date) => {
+    try {
+      const response = await api.getAPOD(date);
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  componentDidMount() {
+    this.getAPOD();
+  }
+  render() {
+    return (
+      <ViewerTemplate
+        spaceNavigator={<SpaceNavigator />}
+        viewer={
+          // <Viewer
+          //   url="https://apod.nasa.gov/apod/image/1712/GeminidsYinHao1024.jpg"
+          //   mediaType="image"
+          // />
+          <Viewer
+            url="https://www.youtube.com/embed/uj3Lq7Gu94Y?rel=0"
+            mediaType="video"
+          />
+        }
+      />
+    );
+  }
 }
 
 export default App;
